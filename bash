@@ -23,7 +23,7 @@ HISTFILESIZE=2000
 HISTIGNORE=":pwd:uptime:ll:history:htop:top:ls:clear:id:exit:"
 
 # ignore duplicate entries
-HISTCONTROL=ignoredups
+HISTCONTROL=ignoreboth:erasedups
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
