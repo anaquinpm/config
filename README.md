@@ -1,3 +1,3 @@
 # Configuraciones
-- [bash](bash)
+- [bash](bashrc)
 - [vimrc](vimrc)
