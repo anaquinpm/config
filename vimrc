@@ -85,3 +85,9 @@ noremap <silent> <C-Left> :vertical resize +3<CR>
 noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
+
+" netrw: directory view
+let g:netrw_liststyle=3		" Vista tree
+let g:netrw_winsize=20		" Tamaño del explorador en porcentaje%
+let g:netrw_banner=0		" Elimina el banner del explorer
+let g:netrw_browse_split=2	" Open in new vertical split. 1 horizontal split, 3 new tab, 4 open in previus windos
