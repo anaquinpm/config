@@ -55,21 +55,18 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-se nu			"muestra los numeros en las lineas
-set hls			"resalta los resultados de busqueda
-set tabstop=4		"muestra los tabs como 4 espacios
-set shiftwidth=2	"indentacion con 4 espacios
+" Indentación y caracteres especiales 
+se nu relativenumber	"muestra los numeros en las lineas y n de lineas relativos a ella
+set tabstop=4			"muestra los tabs como 4 espacios
+set shiftwidth=2		"indentacion con 2 espacios
+set autoindent			" indent new lines to match the current indentation
+set noexpandtab			" don’t replace tabs with spaces
+set smarttab			" use tabs at the start of a line, spaces elsewhere
+set hls					"resalta los resultados de busqueda
 
 " show whitespace at the end of a line
 highlight WhitespaceEOL ctermbg=blue guibg=blue
 match WhitespaceEOL /\s\+$/
-
-" indent new lines to match the current indentation
-set autoindent
-" don’t replace tabs with spaces
-set noexpandtab
-" use tabs at the start of a line, spaces elsewhere
-set smarttab
 
 " Nuevos splits a la derecha y abajo
 set splitbelow splitright
@@ -90,4 +87,11 @@ noremap <silent> <C-Down> :resize -3<CR>
 let g:netrw_liststyle=3		" Vista tree
 let g:netrw_winsize=20		" Tamaño del explorador en porcentaje%
 let g:netrw_banner=0		" Elimina el banner del explorer
-let g:netrw_browse_split=2	" Open in new vertical split. 1 horizontal split, 3 new tab, 4 open in previus windos
+let g:netrw_browse_split=2	" Open in new vertical split. 1 horizontal split, 3 new tab, 4 open in previus windows
+
+" Busca recursivamente en los subfolders (:find)
+set path+=**
+
+" Abbreviations -> abbr <shortcut> <string>
+abbr _sh #!/bin/bash
+abbr _py #!/usr/bin/env python3
