@@ -129,3 +129,6 @@ parse_git_branch() {
  git_branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
  echo "[$git_branch]"
 }
+
+# Usar la linea de comandos con los "key bindings" de vim
+set -o vi
