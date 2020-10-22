@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Script para instalar y configurar programas en un OS recién instalado según las preferencias que tengamos.
+#
+# Author: Pablo Martín Anaquín
+# Date: 10-09-2020
+# Use: sudo ./install.sh
+
 isRoot(){
     if [ "$EUID" -ne 0 ]; then
         return 1
@@ -20,15 +26,16 @@ isVMware(){
         return 1
     else
         echo "Instalando VM-Tools"
+        tools="install open-vm-tools -y"
         case $1 in
             pop|ubuntu)
-                apt install open-vm-tools -y
+                apt $tools
                 ;;
             fedora)
-                dnf install open-vm-tools -y
+                dnf $tools
                 ;;
             centos)
-              yum install open-vm-tools -y
+              yum $tools
                 ;;
     esac
     fi
@@ -70,14 +77,13 @@ checkOS(){
     fi
 }
 
-
 menu(){
     echo "¿Que quieres hacer?"
     echo "  1) Actualizar sistema e instalar aplicaciones"
     echo "  2) Configurar bash"
     echo "  3) Configurar vim"
     echo "  4) Exit"
-    until [[ $OPTION =~ ^[1-4]$ ]]; do
+    until [[ $OPTION =~ ^[1-5]$ ]]; do
         read -rp "Elige una opción del [1-4]: " OPTION
     done
 
