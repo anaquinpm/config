@@ -4,16 +4,11 @@
 #
 # Author: Pablo Martín Anaquín
 # Date: 10-09-2020
-# Use: sudo ./install.sh
-
-isRoot(){
-    if [ "$EUID" -ne 0 ]; then
-        return 1
-    fi
-}
+# Use:
+#       sudo ./install.sh
 
 checkRoot(){
-    if ! isRoot; then
+    if [[ $EUID -ne 0 ]]; then
         echo "Ejecuta el programa como root"
         exit 1
     fi
@@ -77,6 +72,18 @@ checkOS(){
     fi
 }
 
+bashConf(){
+    echo "Copiando archivo bashrc a la carpeta $HOME"
+    chown $USER bashrc
+    cp bashrc ~/.bashrc
+    exit 0
+}
+
+vimconfig(){
+    echo "Copiando archivo vimrc a la carpeta $HOME"
+    cp vimrc ~/.vimrc
+    exit 0
+}
 menu(){
     echo "¿Que quieres hacer?"
     echo "  1) Actualizar sistema e instalar aplicaciones"
@@ -88,18 +95,20 @@ menu(){
     done
 
     case $OPTION in
-        1)  echo "Instalando programas en OS"
+        1)  checkRoot
+            echo "Instalando programas en OS"
             checkOS
             ;;
         2)
+            bashConf
             ;;
         3)
             ;;
-        4)
+        4)  echo "Bye"
             exit 0
             ;;
     esac
 }
 
-checkRoot
+
 menu

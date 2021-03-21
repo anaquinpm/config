@@ -1,0 +1,18 @@
+[user]
+	name = Nombre Apellido
+	email = mail@gmail.com
+[core]
+	editor = vim
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[help]
+	autocorrect = 20
+[alias]
+	ll = log --oneline --graph --decorate --all
+	st = status -sb
+	last = log -1 HEAD --stat
+	cm = commit -m
+	dv = difftool -t vimdiff -y
+	se = !git rev-list --all | xargs git grep -F
