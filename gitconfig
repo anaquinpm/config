@@ -1,6 +1,6 @@
 [user]
-	name = Nombre Apellido
-	email = mail@gmail.com
+	name = NombreCompleto
+	email = myEmail@gmail.com
 [core]
 	editor = vim
 [diff]
@@ -16,3 +16,5 @@
 	cm = commit -m
 	dv = difftool -t vimdiff -y
 	se = !git rev-list --all | xargs git grep -F
+[init]
+	defaultBranch = main
