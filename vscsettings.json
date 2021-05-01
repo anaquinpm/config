@@ -17,13 +17,13 @@
     "markdown.extension.print.theme": "dark",
     "workbench.statusBar.visible": true,
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 0,
     "editor.lineNumbers": "relative",
     "terminal.integrated.fontSize": 16,
     "color-highlight.markerType": "underline",
     "vim.handleKeys": {
         "<C-f>": false,
         "<C-w>": false,
+        "<C-k>": false,
     },
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": false

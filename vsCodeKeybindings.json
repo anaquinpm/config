@@ -1,0 +1,43 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "shift+alt+e",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "shift+alt+z",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "workbench.action.focusPreviousGroup"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "workbench.action.focusRightGroup"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "ctrl+alt+right",
+        "command": "-workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "shift+alt+h",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+alt+left",
+        "command": "-workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+shift+alt+l",
+        "command": "workbench.action.newGroupRight"
+    }
+]
