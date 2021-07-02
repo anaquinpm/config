@@ -1,30 +1,49 @@
 {
-    "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.cursorSmoothCaretAnimation": true,
-    "editor.renderWhitespace": "all",
-    "files.autoSave": "onWindowChange",
-    "workbench.colorTheme": "One Dark Pro",
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "explorer.confirmDelete": false,
-    "editor.fontSize": 12,
-    "editor.lineHeight": 23,
-    "editor.tabSize": 4,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.maxColumn": 200,
-    "editor.detectIndentation": false,
-    "markdown.extension.print.theme": "dark",
-    "workbench.statusBar.visible": true,
-    "editor.minimap.enabled": false,
-    "editor.lineNumbers": "relative",
-    "terminal.integrated.fontSize": 16,
-    "color-highlight.markerType": "underline",
-    "vim.handleKeys": {
-        "<C-f>": false,
-        "<C-w>": false,
-        "<C-k>": false,
-    },
-    "zenMode.hideLineNumbers": false,
-    "zenMode.centerLayout": false
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.renderWhitespace": "all",
+  "files.autoSave": "onWindowChange",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "explorer.confirmDelete": false,
+  "editor.fontSize": 15,
+  "editor.lineHeight": 23,
+  "editor.tabSize": 2,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.maxColumn": 200,
+  "editor.detectIndentation": false,
+  "markdown.extension.print.theme": "dark",
+  "workbench.statusBar.visible": true,
+  "editor.minimap.enabled": false,
+  "editor.lineNumbers": "on",
+  "terminal.integrated.fontSize": 16,
+  "color-highlight.markerType": "underline",
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-w>": false,
+    "<C-k>": false
+  },
+  "zenMode.hideLineNumbers": false,
+  "zenMode.centerLayout": true,
+  "workbench.colorTheme": "GitHub Dark",
+  "vim.smartRelativeLine": true,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "thunder-client.codeSnippetLanguage": "js-fetch",
+  "editor.wordWrap": "wordWrapColumn",
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "window.zoomLevel": -1,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

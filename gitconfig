@@ -16,5 +16,6 @@
 	cm = commit -m
 	dv = difftool -t vimdiff -y
 	se = !git rev-list --all | xargs git grep -F
+        los = log --oneline --graph --decorate --all --stat
 [init]
 	defaultBranch = main
