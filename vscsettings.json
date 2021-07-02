@@ -45,5 +45,6 @@
   "window.zoomLevel": -1,
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  },
+  "diffEditor.wordWrap": "on"
 }
