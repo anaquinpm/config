@@ -97,6 +97,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias g='git'
+alias k='kubectl'
+alias kcdp='kubectl describe pod'
+alias kcds='kubectl describe svc'
+alias kcdd='kubectl describe deploy'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -133,3 +137,8 @@ parse_git_branch() {
 
 # Usar la linea de comandos con los "key bindings" de vim
 set -o vi
+
+# kubectl autocomplete
+source <(kubectl completion bash)
+# funcionamiento con el alias "k"
+complete -F __start_kubectl k

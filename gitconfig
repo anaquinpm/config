@@ -1,12 +1,13 @@
 [user]
-	name = NombreCompleto
-	email = myEmail@gmail.com
+	name = Pablo Martín Anaquín
+	email = anaquinpm@gmail.com
 [core]
 	editor = vim
 [diff]
 	tool = vimdiff
 [merge]
 	tool = vimdiff
+    conflictstyle = diff3
 [help]
 	autocorrect = 20
 [alias]
@@ -17,5 +18,6 @@
 	dv = difftool -t vimdiff -y
 	se = !git rev-list --all | xargs git grep -F
         los = log --oneline --graph --decorate --all --stat
+	mr = push -u origin HEAD
 [init]
 	defaultBranch = main
