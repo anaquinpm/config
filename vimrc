@@ -65,6 +65,9 @@ set expandtab			" replace tabs with spaces
 set smarttab			" use tabs at the start of a line, spaces elsewhere
 set hls					"resalta los resultados de busqueda
 
+" Colorear lenguajes
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'js=javascript', 'json=javascript    ', 'sass']
+
 " Muestra en las busquedas el numero de ocurrencias y en cual estamos parados
 set shortmess-=S
 

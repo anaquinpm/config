@@ -101,6 +101,7 @@ alias k='kubectl'
 alias kcdp='kubectl describe pod'
 alias kcds='kubectl describe svc'
 alias kcdd='kubectl describe deploy'
+alias nmd='touch $(date +%Y%m%d%H%M%S).md'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
