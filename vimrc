@@ -101,6 +101,7 @@ let g:netrw_banner=0		    " Elimina el banner del explorer
 
 " Busca recursivamente en los subfolders (:find)
 set path+=**
+set wildmenu                    " Display all matching file when we tab
 
 " Abbreviations -> abbr <shortcut> <string>
 abbr _sh #!/bin/bash
