@@ -1,26 +1,28 @@
 " Local vim configuration file
 " ln -s thisFile ~/.vim/vimrc
 
+set nocompatible
 if has("syntax")
   syntax on
 endif
 
-set background=dark
+
 filetype plugin indent on
-set showcmd     " Show (partial) command in status line.
-set smartcase   " Do smart case matching
-set incsearch   " Incremental search
-set autowrite   " Automatically save before commands like :next and :make
+set background=dark
+set showcmd         " Show (partial) command in status line.
+set smartcase       " Do smart case matching
+set incsearch       " Incremental search
+set autowrite       " Automatically save before commands like :next and :make
 
 " Indentación y caracteres especiales
-se nu rnu         "muestra el n° de la línea en que estamos y el n° de lineas relativos a ella
-set tabstop=4     "muestra los tabs como 4 espacios
-set shiftwidth=4  "indentacion con 4 espacios
-set autoindent    " indent new lines to match the current indentation
-"set noexpandtab  " don’t replace tabs with spaces
-set expandtab     " replace tabs with spaces
-set smarttab      " use tabs at the start of a line, spaces elsewhere
-set hls           "resalta los resultados de busqueda
+se nu rnu           " n° de la línea en que estamos y el n° de lineas relativos a ella
+set tabstop=4       " muestra los tabs como 4 espacios
+set shiftwidth=4    " indentacion con 4 espacios
+set autoindent      " indent new lines to match the current indentation
+"set noexpandtab    " don’t replace tabs with spaces
+set expandtab       " replace tabs with spaces
+set smarttab        " use tabs at the start of a line, spaces elsewhere
+set hls             " resalta los resultados de busqueda
 
 " Colorear lenguajes
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'sass']
@@ -32,6 +34,7 @@ set shortmess-=S
 highlight WhitespaceEOL ctermbg=blue guibg=blue
 match WhitespaceEOL /\s\+$/
 
+"-------------------------------------------------------------------------------
 " Nuevos splits a la derecha y abajo
 set splitbelow splitright
 
@@ -62,12 +65,16 @@ set wildmenu                  " Display all matching file when we tab
 
 " General remaps
 nnoremap <silent> <C-s> :w<CR>
+"-------------------------------------------------------------------------------
 
 " Abbreviations -> abbr <shortcut> <string>
 abbr _sh #!/bin/bash
 abbr _py #!/usr/bin/env python3
 
+"-------------------------------------------------------------------------------
 " Vim-plug - Automatic installation
+"-------------------------------------------------------------------------------
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -78,6 +85,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'      " Muestrala barra inferior con información
+Plug 'vimwiki/vimwiki'              " Wikipedia personal en MD file
 "Plug 'SirVer/ultisnips'            " Crear snippets personalizados
 
 " File explorer
@@ -93,6 +101,7 @@ Plug 'tpope/vim-surround'           " Agrega/quitar/modificar signos/tags que ro
 Plug 'jiangmiao/auto-pairs'         " Insert or delete brackets, parens, quotes in pair.
 Plug 'preservim/nerdcommenter'      " Crea comentarios
 Plug 'prettier/vim-prettier'
+Plug 'ap/vim-css-color'             " Color previews
 
 " JS and ReactJs
 Plug 'pangloss/vim-javascript'
@@ -100,7 +109,9 @@ Plug 'mxw/vim-jsx'
 
 call plug#end()
 
+"-------------------------------------------------------------------------------
 " NerdTree mapping
+"-------------------------------------------------------------------------------
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
