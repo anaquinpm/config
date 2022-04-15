@@ -4,11 +4,11 @@
 
 [link to bashrc](bashrc)
 
-## Vim
+## Vim - local user configurations
 
-Configuraciones para `/etc/vim/vimrc` de las cuales se pueden copiar las que se necesiten en el `~/.vimrc` de cada usuario -> [vimrc](vimrc)
+> ln -s ~/cloneRepository/vimrc ~/.vim/vimrc
 
-Opciones de `vimrc` para verificar si se encuentra instalado Vim-Plug y agregar lista de plug-ins -> [vimrcHome](vimrcHome)
+- [vimrc](vimrc)
 
 ## Install and configuration script for Linux.
 
@@ -29,7 +29,7 @@ El script tiene 4 opcines para configurar un sistema Linux:
 
 ## Copy ssh keys to many hosts
 
-[ssh-copy.sh file](ssh-copy.sh)
+- [ssh-copy.sh file](ssh-copy.sh)
 
 ```bash
 HOST_FILE="$PWD/hosts"                    # one host per line
@@ -37,6 +37,13 @@ Use:
     $ ./ssh-copy.sh ~/.ssh/id_rsa.pub
 ```
 
+## WSL2 confgurations
+
+1. Stop WSL:
+  > wsl --shoutdown
+2. Copy [".wslconfig"](.wslconfig) to the route "C:\Users\<UserName>\.wslconfig"
+
 ## Git configurations
 
-[gitconfig file](gitconfig)
+> ln -s ~/cloneRepository/gitconfig ~/.gitconfig
+- [gitconfig file](gitconfig)
