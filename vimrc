@@ -1,5 +1,5 @@
 " Local vim configuration file
-" ln -s thisFile ~/.vim/vimrc
+" ln -s ~/.vim/vimrc thisFile
 
 set nocompatible
 if has("syntax")
