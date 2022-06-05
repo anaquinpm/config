@@ -69,7 +69,7 @@ nnoremap <silent> <C-s> :w<CR>
 "-------------------------------------------------------------------------------
 
 " Abbreviations -> abbr <shortcut> <string>
-abbr _sh #!/bin/bash
+abbr _sh #!/usr/bin/env bash
 abbr _py #!/usr/bin/env python3
 
 "-------------------------------------------------------------------------------
