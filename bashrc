@@ -122,7 +122,7 @@ parse_git_branch() {
 }
 
 # Usar la linea de comandos con los "key bindings" de vim
-set -o vi
+# set -o vi
 
 # kubectl autocomplete
 source <(kubectl completion bash)

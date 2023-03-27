@@ -2,7 +2,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias g='git'
-alias nmd='touch $(date +%Y%m%d%H%M%S).md'
+alias nmd='function _(){ touch "$(date +%Y%m%d%H%M%S)-$1.md"; }; _'
 ## K7s aliases
 alias k='kubectl'
 alias kgt='kubectl get'
