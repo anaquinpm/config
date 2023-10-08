@@ -47,3 +47,7 @@ Use:
 > ln -s ~/cloneRepository/gitconfig ~/.gitconfig
 
 - [gitconfig file](gitconfig)
+
+## References
+
+- [WSL/Powershell commands](wsl.md)
