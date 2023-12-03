@@ -16,7 +16,7 @@ set autowrite       " Automatically save before commands like :next and :make
 
 " Indentación y caracteres especiales
 se nu rnu           " n° de la línea en que estamos y el n° de lineas relativos a ella
-set colorcolumn=81  " Linea en los 80 caracteres
+" set colorcolumn=81  " Linea en los 80 caracteres
 set tabstop=4       " muestra los tabs como 4 espacios
 set shiftwidth=4    " indentacion con 4 espacios
 set autoindent      " indent new lines to match the current indentation

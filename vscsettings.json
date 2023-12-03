@@ -1,14 +1,14 @@
 {
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.iconTheme": "material-icon-theme",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.renderWhitespace": "all",
     "files.autoSave": "onWindowChange",
     "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "explorer.confirmDelete": false,
-    "editor.fontSize": 14,
-    "editor.lineHeight": 26,
+    "editor.fontSize": 16,
+    "editor.lineHeight": 27,
     "editor.tabSize": 2,
     "editor.minimap.renderCharacters": false,
     "editor.minimap.maxColumn": 200,
@@ -26,11 +26,7 @@
     },
     "zenMode.hideLineNumbers": false,
     "zenMode.centerLayout": true,
-    "workbench.colorTheme": "GitHub Dark",
-    "remote.SSH.remotePlatform": {
-      "192.168.1.80": "linux",
-      "192.168.1.70": "linux"
-    },
+    "workbench.colorTheme": "GitHub Dark Dimmed",
     "vim.smartRelativeLine": true,
     "workbench.editorAssociations": {
       "*.ipynb": "jupyter.notebook.ipynb"
@@ -54,4 +50,12 @@
     "editor.mouseWheelZoom": true,
     "redhat.telemetry.enabled": false,
     "editor.bracketPairColorization.enabled": true,
+    "vscode-edge-devtools.mirrorEdits": true,
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.sideBar.location": "right",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "npm.keybindingsChangedWarningShown": true,
+    "terminal.integrated.env.linux": {},
 }
