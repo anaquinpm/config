@@ -1,11 +1,10 @@
 " Local vim configuration file
-" ln -s this_file ~/.vim/vimrc
+" ln -s /path/this/file ~/.vim/vimrc
 
 set nocompatible
 if has("syntax")
   syntax on
 endif
-
 
 filetype plugin indent on
 set background=dark
@@ -46,8 +45,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Adjusting split sizes
-noremap <silent> <C-Left> :vertical resize +3<CR>
-noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Left> :vertical resize -3<CR>
+noremap <silent> <C-Right> :vertical resize +3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
@@ -65,12 +64,24 @@ set path+=**
 set wildmenu                  " Display all matching file when we tab
 
 " General remaps
-nnoremap <silent> <C-s> :w<CR>
-"-------------------------------------------------------------------------------
+nnoremap <silent> <C-s> :w<CR>  " Save the actual
 
+"-------------------------------------------------------------------------------
 " Abbreviations -> abbr <shortcut> <string>
 abbr _sh #!/usr/bin/env bash
 abbr _py #!/usr/bin/env python3
+
+"-------------------------------------------------------------------------------
+" NerdTree mapping
+"-------------------------------------------------------------------------------
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 "-------------------------------------------------------------------------------
 " Vim-plug - Automatic installation
@@ -102,22 +113,16 @@ Plug 'tpope/vim-surround'           " Agrega/quitar/modificar signos/tags que ro
 Plug 'jiangmiao/auto-pairs'         " Insert or delete brackets, parens, quotes in pair.
 Plug 'preservim/nerdcommenter'      " Crea comentarios
 Plug 'prettier/vim-prettier'
-Plug 'ap/vim-css-color'             " Color previews
+"Plug 'ap/vim-css-color'             " Color previews
 
 " JS and ReactJs
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
 
 call plug#end()
 
-"-------------------------------------------------------------------------------
-" NerdTree mapping
-"-------------------------------------------------------------------------------
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+" Plugs configurations
 
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+let g:airline#extensions#tabline#enabled = 1
+
+
