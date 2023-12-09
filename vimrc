@@ -118,5 +118,3 @@ call plug#end()
 " Plugs configurations
 
 let g:airline#extensions#tabline#enabled = 1
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md'}]
-let g:vimwiki_global_ext = 0
