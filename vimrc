@@ -23,6 +23,7 @@ set autoindent      " indent new lines to match the current indentation
 set expandtab       " replace tabs with spaces
 set smarttab        " use tabs at the start of a line, spaces elsewhere
 set hls             " resalta los resultados de busqueda
+let mapleader = " "
 
 " Colorear lenguajes
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'sass']
@@ -101,7 +102,7 @@ Plug 'vimwiki/vimwiki'              " Wikipedia personal en MD file
 "Plug 'SirVer/ultisnips'            " Crear snippets personalizados
 
 " File explorer
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
 " Git
@@ -111,18 +112,11 @@ Plug 'airblade/vim-gitgutter'       " Muestra las modificiones respecto del últ
 " General Sintax
 Plug 'tpope/vim-surround'           " Agrega/quitar/modificar signos/tags que rodean texto
 Plug 'jiangmiao/auto-pairs'         " Insert or delete brackets, parens, quotes in pair.
-Plug 'preservim/nerdcommenter'      " Crea comentarios
-Plug 'prettier/vim-prettier'
-"Plug 'ap/vim-css-color'             " Color previews
-
-" JS and ReactJs
-" Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx'
 
 call plug#end()
 
 " Plugs configurations
 
 let g:airline#extensions#tabline#enabled = 1
-
-
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md'}]
+let g:vimwiki_global_ext = 0
