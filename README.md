@@ -1,7 +1,5 @@
 # Configuring my linux OS
 
-## [Mac Configuratios](mac_conf.md)
-
 ## Bash
 
 [link to bashrc](bashrc)
