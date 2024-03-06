@@ -1,5 +1,7 @@
 # Configuring my linux OS
 
+# [Mac Configuratios](mac_conf.md)
+
 ## Bash
 
 [link to bashrc](bashrc)
@@ -36,17 +38,24 @@ HOST_FILE="$PWD/hosts"                    # one IP host per line
 Use:
     $ ./ssh-copy.sh ~/.ssh/id_rsa.pub
 ```
-
-## WSL2 confgurations
-
-1. Stop WSL:  "wsl --shoutdown"
-1. Copy [".wslconfig"](.wslconfig) to the route "C:\Users\<UserName>\.wslconfig"
+## [Mac Config](./mac_conf.md)
 
 ## Git configurations
 
 > ln -s ~/cloneRepository/gitconfig ~/.gitconfig
 
 - [gitconfig file](gitconfig)
+
+## Visual Studio Code
+
+> code --install-extension <extension_name>
+
+[Extensions list to install](./code-list-extensions.md)
+
+## WSL2 confgurations
+
+1. Stop WSL:  "wsl --shoutdown"
+2. Copy [".wslconfig"](.wslconfig) to the route "C:\Users\<UserName>\.wslconfig"
 
 ## References
 
