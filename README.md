@@ -1,6 +1,6 @@
 # Configuring my linux OS
 
-# [Mac Configuratios](mac_conf.md)
+## [Mac Configuratios](mac_conf.md)
 
 ## Bash
 
