@@ -46,7 +46,10 @@ Use:
 
 ## Visual Studio Code
 
-> code --install-extension <extension_name>
+```bash
+code --list-extensions > <extensions_file.txt>
+code --install-extension <extension_name>
+```
 
 [Extensions list to install](./code-list-extensions.md)
 
