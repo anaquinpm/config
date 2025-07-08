@@ -1,25 +1,25 @@
 [user]
-	name = Pablo Martín Anaquín
-	email = anaquinpm@gmail.com
+    name = My Name
+    email = myMail@gmail.com
 [core]
-	editor = vim
+    editor = vim
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = vimdiff
     conflictstyle = diff3
 [help]
-	autocorrect = 20
+    autocorrect = 20
 [alias]
-	st = status -sb
-	cm = commit -m
+    st = status -sb
+    cm = commit -m
     cma = commit -am
     cmne = commit --amend --no-edit
-	dv = difftool -t vimdiff -y
-	se = !git rev-list --all | xargs git grep -F
-	ll = log --oneline --graph --decorate --all
+    dv = difftool -t vimdiff -y
+    se = !git rev-list --all | xargs git grep -F
+    ll = log --oneline --graph --decorate --all
     los = log --oneline --graph --decorate --all --stat
-	last = log -1 HEAD --stat
-	mr = push -u origin HEAD
+    last = log -1 HEAD --stat
+    mr = push -u origin HEAD
 [init]
-	defaultBranch = main
+    defaultBranch = main
