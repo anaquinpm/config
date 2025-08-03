@@ -25,6 +25,7 @@ EOF
 ## General commands
 
 ```bash
+sudo find . -name '.DS_Store' -depth -exec rm {} \;  # Clean finder metadata files
 NetworkQuality -s
 caffeinate [-t <seconds>] [-s|-d|-m] # sleep mode temporarily off
 pmset -g    # get general power configuration
