@@ -12,7 +12,17 @@ sudo sh -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
 cat /etc/shells      # Check the whole shell list
 chsh -s /opt/homebrew/bin/bash
 ```
+### Bash autocomplete
 
+for bash 5.3.3 (installed with brew)
+
+```bash
+brew install bash-completion@2
+#Add the following line to your ~/.bash_profile:
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+
+
+```
 
 ## Visual studio Code
 

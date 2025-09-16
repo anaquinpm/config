@@ -124,11 +124,14 @@ parse_git_branch() {
 # Usar la linea de comandos con los "key bindings" de vim
 # set -o vi
 
+# bash-completion@2 (brew)
+#[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+
 # kubectl autocomplete - install 'bash-completion' package
-source <(kubectl completion bash)
+#source <(kubectl completion bash)
 # funcionamiento con el alias "k"
-alias k='kubectl'
-complete -F __start_kubectl k
+#alias k='kubectl'
+#complete -F __start_kubectl k
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
