@@ -124,13 +124,14 @@ parse_git_branch() {
 # Usar la linea de comandos con los "key bindings" de vim
 # set -o vi
 
-# kubectl autocomplete
+# kubectl autocomplete - install 'bash-completion' package
 source <(kubectl completion bash)
 # funcionamiento con el alias "k"
+alias k='kubectl'
 complete -F __start_kubectl k
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 PATH=~/.console-ninja/.bin:$PATH
