@@ -10,6 +10,7 @@ filetype plugin indent on
 set background=dark
 set showcmd         " Show (partial) command in status line.
 set smartcase       " Do smart case matching
+set ignorecase
 set incsearch       " Incremental search
 set autowrite       " Automatically save before commands like :next and :make
 
@@ -52,6 +53,9 @@ noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
 " netrw: directory view
+let g:loaded_netrw = 1        " disable netrw"
+let g:loaded_netrwPlugin = 1  " enable NERDTree"
+
 let g:netrw_preview=1         " Preview windows in vertical split windows
 let g:netrw_alto=0            " En conjunto con la opción de arriba el split lo realiza: topleft
 let g:netrw_liststyle=3       " Vista tree
