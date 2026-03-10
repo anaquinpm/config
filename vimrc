@@ -142,6 +142,16 @@ let g:markdown_fenced_languages = [
 " Plugins mínimos (Pure Vim Philosophy)
 "-----------------------------------------------------------
 " Instalar vim-plug primero si no está instalado
+let s:plug_path = expand('~/.vim/autoload/plug.vim')
+
+if empty(glob(s:plug_path))
+    echo "Instalando vim-plug..."
+    silent execute '!curl -fLo ' . s:plug_path . ' --create-dirs ' .
+        \ 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    
+    " Ejecutar PlugInstall automáticamente al abrir Vim por primera vez
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin('~/.vim/plugged')
 
