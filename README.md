@@ -65,6 +65,11 @@ Usage:
 
 - [nvim_init.lua](editor/nvim_init.lua)
 
+```bash
+mkdir -p ~/.config/nvim
+ln -s /REPO/PATH/editor/nvim_init.lua ~/.config/nvim/init.lua
+```
+
 ### Tmux
 
 - [tmux.conf](editor/tmux.conf)
