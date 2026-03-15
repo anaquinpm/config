@@ -1,63 +1,117 @@
-# Configuring my linux OS
+# System Configurations and Scripts
 
-## Bash
+This project contains configurations for various operating systems I use, including installation scripts, editor configurations, terminals, and command guides in Markdown format.
 
-[link to bashrc](bashrc)
+## Index
 
-## Vim - local user configurations
+- [System Configurations and Scripts](#system-configurations-and-scripts)
+  - [Index](#index)
+  - [Scripts](#scripts)
+    - [Package Installation on OS](#package-installation-on-os)
+    - [SSH Keys Copy](#ssh-keys-copy)
+  - [Editor Configurations](#editor-configurations)
+    - [Vim](#vim)
+    - [Neovim](#neovim)
+    - [Tmux](#tmux)
+    - [Visual Studio Code](#visual-studio-code)
+  - [Terminal Configurations](#terminal-configurations)
+    - [Bash](#bash)
+    - [Zsh](#zsh)
+    - [Git](#git)
+  - [Guides and References](#guides-and-references)
+    - [Mac Configuration](#mac-configuration)
+    - [WSL/Powershell Commands](#wslpowershell-commands)
+    - [WSL2 Configuration](#wsl2-configuration)
 
-> ln -s ~/cloneRepository/vimrc ~/.vimrc
+## Scripts
 
-- [vimrc](vimrc)
+### Package Installation on OS
 
-## Install and configuration script for Linux
+- [pckg_install_os.sh](pckg_install_os.sh)
 
-[install.sh](install.sh)
+The script has 4 options to configure a Linux system:
 
-El script tiene 4 opcines para configurar un sistema Linux:
+- Update system and install applications:
+  - Checks if the system is a VM to install open-vm-tools
+  - Supports Debian/CentOS/Fedora derivatives
+  - Installs list of programs defined in the script
+    - Completed for Debian derivatives
+    - CentOS and Fedora in progress or you can modify the script
+- Configure bash
+  - Copies the `bashrc` file to `~/.bashrc`
+- Configure vim
+  - Copies the `vimrc` file to `~/.vimrc`
 
-- Actualizar sistema e instalar aplicaciones:
-  - Verifica si el sistema es una VM para instalar open-vm-tools
-    - Soporta deribados Debian/CentOs/fedora
-  - Instala lista de programas definidas en el script
-    - Terminado para derivados de debian
-    - Centos y fedora en progreso o pueden modificar el script
-- Configurar bash
-  - Copia el archivo `bash` a `~/.bashrc`
-- Configurar vim
-  - Copia el archivo `vimrc` a `~/.vimrc`
+### SSH Keys Copy
 
-## Copy ssh keys to many hosts
-
-- [ssh-copy.sh file](ssh-copy.sh)
+- [ssh-copy.sh](ssh-copy.sh)
 
 ```bash
 HOST_FILE="$PWD/hosts"                    # one IP host per line
-Use:
+Usage:
     $ ./ssh-copy.sh ~/.ssh/id_rsa.pub
 ```
-## [Mac Config](./mac_conf.md)
 
-## Git configurations
+## Editor Configurations
 
-> ln -s ~/cloneRepository/gitconfig ~/.gitconfig
+### Vim
 
-- [gitconfig file](gitconfig)
+> ln -s ~/dev/config/editor/vimrc ~/.vimrc
 
-## Visual Studio Code
+- [vimrc](editor/vimrc)
+
+### Neovim
+
+- [nvim_init.lua](editor/nvim_init.lua)
+
+### Tmux
+
+- [tmux.conf](editor/tmux.conf)
+
+### Visual Studio Code
 
 ```bash
 code --list-extensions > <extensions_file.txt>
 code --install-extension <extension_name>
 ```
 
-[Extensions list to install](./code-list-extensions.md)
+- [Extensions list](editor/code-list-extensions.md)
+- [Settings](editor/vscsettings.json)
+- [Keybindings](editor/vsCodeKeybindings.json)
+- [Snippets](editor/snippets/)
 
-## WSL2 confgurations
+## Terminal Configurations
 
-1. Stop WSL:  "wsl --shoutdown"
-2. Copy [".wslconfig"](.wslconfig) to the route "C:\Users\<UserName>\.wslconfig"
+### Bash
 
-## References
+(Compatible with Linux and Mac)
 
-- [WSL/Powershell commands](wsl.md)
+- [bashrc](terminal/bashrc)
+- [bash_aliases](terminal/bash_aliases)
+
+### Zsh
+
+(Mac only)
+
+- [zshrc](terminal/zshrc)
+
+### Git
+
+> ln -s ~/dev/config/terminal/gitconfig ~/.gitconfig
+
+- [gitconfig](terminal/gitconfig)
+
+## Guides and References
+
+### Mac Configuration
+
+- [Mac terminal configuration](terminal/mac_conf_terminal.md)
+
+### WSL/Powershell Commands
+
+- [wsl_commands.md](wsl_commands.md)
+
+### WSL2 Configuration
+
+1. Stop WSL: `wsl --shutdown`
+2. Copy [.wslconfig](.wslconfig) to the path `C:\Users\<UserName>\.wslconfig`

@@ -1,37 +1,65 @@
 #!/bin/bash
-# Copy ssh keys in hosts listed in a file
+# Script para copiar claves SSH a múltiples hosts listados en un archivo.
 #
-# Author: Pablo Martín Anaquín (@anaquinpm)
-# Date: 07-11-2020
-# Uso:
-#       $ ./ssh-copy.sh ~/.ssh/id_rsa.pub
+# Uso: ./ssh-copy.sh /ruta/a/clave.pub
+# Requiere:
+#   - Un archivo `hosts` en el directorio actual (una IP por línea, sin espacios).
+#   - La clave pública SSH en el primer argumento.
+#
+# Autor: Pablo Martín Anaquín (@anaquinpm)
+# Fecha: 13-03-2026
 
-USER_NAME=$USER
+# Configuración
+USER_NAME="${USER:-$(id -un)}"  # Usuario actual, con fallback
 HOST_FILE="$PWD/hosts"
-ERROR_FILE="/tmp/ssh-copy_error.txt"
+ERROR_FILE="/tmp/ssh-copy_error.txt.$(date +%s.%N)"
 PUBLIC_KEY_FILE="$1"
 
-if [ ! -f  $PUBLIC_KEY_FILE ]; then
-    echo "File '$PUBLIC_KEY_FILE' not found!"
+# Validación de argumentos
+if [ $# -ne 1 ]; then
+    echo "Error: Se requiere exactamente un argumento (ruta a la clave pública)."
+    echo "Uso: $0 /ruta/a/clave.pub"
     exit 1
 fi
 
-if [ ! -f $HOST_FILE ]; then
-    echo "File '$HOST_FILE' not found!"
+if [ ! -f "$PUBLIC_KEY_FILE" ]; then
+    echo "Error: El archivo de clave pública '$PUBLIC_KEY_FILE' no existe."
     exit 2
 fi
 
-for IP in `cat $HOST_FILE`; do
-    ssh-copy-id -i $PUBLIC_KEY_FILE $USER_NAME@$IP 2>$ERROR_FILE
+if [ ! -f "$HOST_FILE" ]; then
+    echo "Error: El archivo de hosts '$HOST_FILE' no existe."
+    exit 3
+fi
+
+# Verificar que el archivo de clave pública sea legible
+if [ ! -r "$PUBLIC_KEY_FILE" ]; then
+    echo "Error: No se puede leer el archivo de clave pública '$PUBLIC_KEY_FILE'."
+    exit 4
+fi
+
+# Limpiar archivos temporales al salir (incluso en errores)
+trap 'rm -f "$ERROR_FILE"' EXIT
+# Leer hosts (ignorar líneas vacías y comentarios)
+mapfile -t HOSTS < <(grep -vE '^\s*#|^$' "$HOST_FILE" | tr -d '\r')
+
+for IP in "${HOSTS[@]}"; do
+    [ -z "$IP" ] && continue
+    echo "Copiando clave a $USER_NAME@$IP..."
+    ssh-copy-id -i "$PUBLIC_KEY_FILE" -o StrictHostKeyChecking=no "$USER_NAME@$IP" 2>"$ERROR_FILE"
     RESULT=$?
     if [ $RESULT -eq 0 ]; then
-        echo ""
-        echo "Public key successfully copied to $IP"
-        echo ""
+        echo "✅ Clave copiada exitosamente a $IP"
     else
-        echo "$(cat  $ERROR_FILE)"
-        echo
-        exit 3
+        echo "❌ Error al copiar clave a $IP:"
+        if [ -s "$ERROR_FILE" ]; then
+            cat "$ERROR_FILE"
+        else
+            echo "Error desconocido (verifique conexión o permisos)."
+        fi
     fi
     echo ""
 done
+
+echo "✅ Proceso completado. Revisar resultados anteriores."
+exit 0
