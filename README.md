@@ -56,9 +56,10 @@ Usage:
 
 ### Vim
 
-> ln -s ~/dev/config/editor/vimrc ~/.vimrc
+> ln -s /REPO/PATH/editor/vimrc ~/.vimrc
 
 - [vimrc](editor/vimrc)
+- [Snippets](editor/snippets/)
 
 ### Neovim
 
@@ -78,7 +79,6 @@ code --install-extension <extension_name>
 - [Extensions list](editor/code-list-extensions.md)
 - [Settings](editor/vscsettings.json)
 - [Keybindings](editor/vsCodeKeybindings.json)
-- [Snippets](editor/snippets/)
 
 ## Terminal Configurations
 
