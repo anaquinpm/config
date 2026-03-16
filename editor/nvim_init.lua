@@ -1,9 +1,28 @@
 --===========================================================
+-- Auto reload config when saving
+--===========================================================
+
+local reload_group = vim.api.nvim_create_augroup("AutoReloadConfig", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = reload_group,
+  pattern = {
+    "*/nvim/init.lua",
+    "*/nvim/lua/*.lua",
+    "*/nvim/lua/**/*.lua",
+  },
+  callback = function()
+    vim.cmd("source $MYVIMRC")
+    print("Neovim config reloaded")
+  end,
+})
+
+--===========================================================
 --            PURE NEOVIM - DEVOPS EDITION
 --===========================================================
 
 -- Leader
-vim.g.mapleader = " "
+vim.g.mapleader = ";"
 
 --===========================================================
 -- Básico
@@ -158,3 +177,165 @@ vim.g.markdown_fenced_languages = {
   "yml=yaml",
 }
 
+
+--===========================================================
+-- Bootstrap Mason (auto instalación si no existe)
+--===========================================================
+
+local mason_path = vim.fn.stdpath("data") .. "/lazy/mason.nvim"
+
+if not vim.loop.fs_stat(mason_path) then
+  print("Installing Mason...")
+
+  vim.fn.system({
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/williamboman/mason.nvim",
+    mason_path,
+  })
+  print("RUN -> :Mason")
+end
+
+vim.opt.rtp:prepend(mason_path)
+
+--===========================================================
+-- Bootstrap plugins (same path as mason)
+--===========================================================
+
+local plugin_root = vim.fn.stdpath("data") .. "/lazy"
+
+local function ensure_plugin(repo)
+  local name = repo:match(".+/(.+)")
+  local path = plugin_root .. "/" .. name
+
+  if not vim.loop.fs_stat(path) then
+    print("Installing " .. repo .. " ...")
+
+    vim.fn.system({
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/" .. repo .. ".git",
+      path,
+    })
+  end
+
+  vim.opt.rtp:prepend(path)
+end
+
+ensure_plugin("neovim/nvim-lspconfig")
+ensure_plugin("hrsh7th/nvim-cmp")
+ensure_plugin("hrsh7th/cmp-nvim-lsp")
+
+--===========================================================
+-- INSTALL this packages in Mason (npm requiered): 
+-- nvim-lspconfig
+-- nvim-cmp
+-- bash-language-server
+-- dockerfile-language-server
+-- pyright
+-- terraform-ls
+-- vscode-json-language-server
+-- yaml-language-server
+
+--===========================================================
+-- LSP MINIMALISTA DEVOPS
+--===========================================================
+
+-- Plugins (carga simple si existen)
+local has_mason, mason = pcall(require, "mason")
+local has_lspconfig, lspconfig = pcall(require, "lspconfig")
+local has_cmp, cmp = pcall(require, "cmp")
+
+if has_mason then
+  mason.setup()
+end
+
+-- Capabilities para autocompletado
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local ok_cmp_lsp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+if ok_cmp_lsp then
+  capabilities = cmp_lsp.default_capabilities(capabilities)
+end
+
+--===========================================================
+-- Servidores DevOps
+--===========================================================
+
+local servers = {
+  "bashls",
+  "pyright",
+  "dockerls",
+  "yamlls",
+  "jsonls",
+  "terraformls",
+}
+
+for _, server in ipairs(servers) do
+  vim.lsp.config(server, {
+    capabilities = capabilities,
+  })
+  vim.lsp.enable(server)
+end
+
+  -- YAML optimizado para Kubernetes
+vim.lsp.config("yamlls", {
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "*.yaml",
+      },
+    },
+  },
+})
+
+vim.lsp.enable("yamlls")
+
+--===========================================================
+-- Keymaps LSP (estilo IDE ligero)
+--===========================================================
+
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+
+--===========================================================
+-- Autocompletado
+--===========================================================
+
+if has_cmp then
+  cmp.setup({
+    completion = {
+      completeopt = "menu,menuone,noinsert",
+    },
+
+    sources = {
+      { name = "nvim_lsp" },
+      { name = "buffer" },
+    },
+
+    mapping = cmp.mapping.preset.insert({
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      ["<C-e>"] = cmp.mapping.abort(),
+    }),
+  })
+end
+
+--===========================================================
+-- Diagnósticos
+--===========================================================
+
+vim.diagnostic.config({
+  virtual_text = true,
+  underline = true,
+  signs = true,
+  update_in_insert = false,
+})

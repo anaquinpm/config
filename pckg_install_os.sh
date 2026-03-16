@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script para instalar y configurar programas en un OS recién instalado según las preferencias que tengamos.
 #
