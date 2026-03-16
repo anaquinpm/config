@@ -15,7 +15,7 @@ setopt HIST_IGNORE_SPACE
 HISTORY_IGNORE="(pwd|uptime|ll|history|htop|top|ls|clear|id|exit)"
 
 # --- OPCIONES DE SHELL ---
-setopt AUTO_CD              # Escribe el nombre de una carpeta para entrar sin 'cd'
+# setopt AUTO_CD              # Escribe el nombre de una carpeta para entrar sin 'cd'
 setopt NO_BEEP              # Silencio, por favor
 stty -ixon                  # Deshabilitar control de flujo (XON/XOFF)
 
@@ -45,7 +45,3 @@ if [ $((which kubectl) > /dev/null 2>&1) ]; then
     source <(kubectl completion zsh)
 fi
 
-# --- NVM (Si lo usas) ---
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
