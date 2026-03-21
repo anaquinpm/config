@@ -107,11 +107,3 @@ nnoremap <leader>sh :read ~/.config/vim/snippets/bash_header<CR>
 ✅ **Rápido** - Inserción instantánea sin complejidad de plugins  
 ✅ **Versionable** - Los snippets están en Git, sincronizados en todas tus máquinas  
 
-## Roadmap de snippets
-
-- [x] `header` → Cabecera estándar
-- [x] `python_header` → Script Python con shebang
-- [x] `bash_header` → Script Bash robusto
-- [x] `terraform_template` → Estructura básica HCL
-- [x] `dockerfile_template` → Dockerfile multi-stage
-- [x] `kubernetes_pod` → Pod manifest básico
