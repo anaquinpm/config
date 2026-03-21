@@ -1,4 +1,20 @@
 --===========================================================
+--           NEOVIM CONFIG - DEVOPS EDITION
+--           Compatible: Linux & macOS
+--===========================================================
+-- INSTALLATION COMMANDS:
+--
+-- macOS (with Homebrew):
+-- brew install ripgrep python-black ruff terraform kubectl shellcheck
+--
+-- Linux (Debian/Ubuntu):
+-- apt install ripgrep python3-black ruff terraform kubectl shellcheck
+--
+-- Install LSP servers:
+-- :Mason -> search and install: bashls pyright dockerls yamlls jsonls terraformls
+--===========================================================
+
+--===========================================================
 -- Auto reload config when saving
 --===========================================================
 
