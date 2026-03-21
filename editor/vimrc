@@ -1,5 +1,14 @@
 "===========================================================
 "                PURE VIM - DEVOPS EDITION
+"                Compatible: Linux & macOS
+"===========================================================
+" INSTALLATION COMMANDS:
+"
+" macOS (with Homebrew):
+" brew install ripgrep universal-ctags python-black ruff terraform kubectl shellcheck
+"
+" Linux (Debian/Ubuntu):
+" apt install ripgrep universal-ctags python3-black ruff terraform kubectl shellcheck
 "===========================================================
 
 "-----------------------------------------------------------
@@ -90,7 +99,8 @@ nnoremap <leader>s :!shellcheck %<CR>
 
 "-----------------------------------------------------------
 " ctags para navegación tipo "Go to Definition"
-" Requiere: brew install universal-ctags
+" Requiere: brew install universal-ctags (macOS)
+"           apt install universal-ctags (Linux)
 " Generar en proyecto: ctags -R .
 "-----------------------------------------------------------
 set tags=./tags;,tags;
