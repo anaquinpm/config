@@ -1,0 +1,17 @@
+#!/bin/bash
+set -euo pipefail
+
+# Script: $(basename "$0")
+# Description: 
+# Author: Pablo Anaquín (@anaquinpm)
+# Date: dd-mm-yyyy
+# Use:
+#       $ ./script.sh [opt] <param>
+# Note: Tested on Linux & macOS
+# ------------------------------------------------------------------------------
+
+main() {
+    echo "Starting..."
+}
+
+main "$@"
