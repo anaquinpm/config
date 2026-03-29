@@ -40,6 +40,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -- Leader
 vim.g.mapleader = ";"
 
+-- Enable truecolor and syntax so colors match Vim
+vim.opt.termguicolors = true
+vim.cmd("syntax enable")
 --===========================================================
 -- Básico
 --===========================================================
