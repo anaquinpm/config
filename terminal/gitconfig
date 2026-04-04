@@ -19,8 +19,19 @@
     se = !git rev-list --all | xargs git grep -F
     ll = log --oneline --graph --decorate --all
     los = log --oneline --graph --decorate --all --stat
-    las = log --pretty='%h - %ce, %ar : %s' --graph --stat
+    las = log --pretty='%C(bold blue)%h%C(reset) %C(yellow)%d%C(reset) - %C(green)%ce%C(reset), %C(cyan)%ar%C(reset) : %s' --graph --stat --decorate=short --all --color=always
     last = log -1 HEAD --stat
-    mr = push -u origin HEAD
+    pob = push -u origin HEAD
+    mq = merge --squash
+    gcount = rev-list --count main..HEAD
+    ri = "!f() { \
+        local branch=${1:-main}; \
+        local count=$(git rev-list --count ${branch}..HEAD); \
+        if [ $count -gt 0 ]; then \
+            git rebase -i HEAD~$count; \
+        else \
+            echo \"No hay commits nuevos respecto a $branch\"; \
+        fi \
+    }; f"
 [init]
     defaultBranch = main
