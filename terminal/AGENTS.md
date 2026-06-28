@@ -11,6 +11,7 @@
   - Go directly to the technical solution, commands, configuration files (YAML/JSON/INI), or relevant code.
   - Do not use unnecessary prose, polite introductions, or redundant concluding summaries.
 - **Explanation on Demand**: Provide the most optimal and direct solution first. Only elaborate, detail alternatives, or explain the underlying theory if the user explicitly requests it.
+- **Security-First Approach**: When providing technical responses, shell commands, or modifying code, always consider the security implications of the proposed changes (e.g., avoiding hardcoded credentials, applying least privilege permissions, and sanitizing inputs).
 
 ## 3. Agent Token Optimization
 - **Surgical Reading and Search**: Use `grep_search` and specific line range reads (`view_file` with `StartLine` and `EndLine`) instead of listing entire directories or reading whole files.
