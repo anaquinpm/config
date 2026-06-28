@@ -36,6 +36,7 @@ EOF
 
 ```bash
 sudo find . -name '.DS_Store' -depth -exec rm {} \;  # Clean finder metadata files
+system_profiler SPHardwareDataType  # System hardware overview
 NetworkQuality -s
 caffeinate [-t <seconds>] [-s|-d|-m] # sleep mode temporarily off
 pmset -g    # get general power configuration
